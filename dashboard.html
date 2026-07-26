@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Travorium Dashboard</title>
+
+<style>
+body {
+    font-family: Arial;
+    background: #f2f2f2;
+    text-align: center;
+}
+
+h1 {
+    color: #008000;
+}
+
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    padding: 20px;
+}
+
+.box {
+    background: green;
+    color: white;
+    padding: 25px;
+    border-radius: 15px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.pending {
+    background: orange;
+}
+
+.withdrawal {
+    background: blue;
+}
+
+.account {
+    background: #333;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>Travorium Dashboard</h1>
+
+<div class="dashboard">
+
+<div class="box">
+Balance<br>
+30,000 Frw
+</div>
+
+<div class="box pending">
+Pending<br>
+0 Frw
+</div>
+
+<div class="box withdrawal">
+Withdrawal<br>
+0 Frw
+</div>
+
+<div class="box account">
+Account<br>
+Active
+</div>
+
+</div>
+
+</body>
+</html>
