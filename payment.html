@@ -1,0 +1,128 @@
+<!<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Payment</title>
+
+<style>
+body {
+  font-family: Arial;
+  background: #eeeeee;
+}
+
+.payment-box {
+  width: 90%;
+  max-width: 420px;
+  margin: 50px auto;
+  background: white;
+  padding: 25px;
+  text-align: center;
+  border-radius: 15px;
+}
+
+.code {
+  background: #f1f1f1;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+input {
+  width: 90%;
+  padding: 12px;
+  margin: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  padding: 12px 35px;
+  background: green;
+  color: white;
+  border: none;
+  border-radius: 8px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="payment-box">
+
+<h2>PAYMENT METHODS</h2>
+
+<p>Shyura ukoresheje MTN Mobile Money</p>
+
+<div class="code">
+*182*8*1*2160613*3900#
+</div>
+
+<br>
+
+<p><b>NAME:</b><br>
+Super Viser Patrick</p>
+
+<hr>
+
+<h3>Confirm Payment</h3>
+
+<input type="text" id="name" placeholder="Amazina yawe">
+
+<input type="tel" id="phone" placeholder="Numero ya telefone">
+
+<input type="text" id="transactionId" placeholder="Transaction ID">
+
+<br><br>
+
+<button onclick="confirmPayment()">Confirm Payment</button>
+
+</div>
+
+
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDHn_vWtju3EAsSRdehMaKmUqV4OpQwlDM",
+  authDomain: "travorium-5a3f1.firebaseapp.com",
+  projectId: "travorium-5a3f1",
+  storageBucket: "travorium-5a3f1.firebasestorage.app",
+  messagingSenderId: "821399597839",
+  appId: "1:821399597839:web:2464b540f0af266e94847a"
+};
+
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+
+window.confirmPayment = async function(){
+
+  await addDoc(collection(db, "users"), {
+
+    name: document.getElementById("name").value,
+
+    phone: document.getElementById("phone").value,
+
+    transactionId: document.getElementById("transactionId").value,
+
+    status: "Pending"
+
+  });
+
+
+  alert("Payment submitted. Waiting for approval.");
+
+};
+
+</script>
+
+
+</body>
+</html>
