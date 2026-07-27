@@ -4,32 +4,71 @@
 <title>Travorium Admin</title>
 
 <style>
-body {
-    font-family: Arial;
-    background: #f2f2f2;
-    text-align: center;
+body{
+    font-family:Arial;
+    background:#f2f2f2;
+    text-align:center;
 }
-
-h1 {
-    color: green;
+h1{
+    color:green;
 }
-
-.box {
-    background: white;
-    margin: 20px auto;
-    padding: 20px;
-    width: 300px;
-    border-radius: 15px;
+.box{
+    background:white;
+    margin:15px auto;
+    padding:15px;
+    width:300px;
+    border-radius:15px;
 }
-
-button {
-    background: green;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 10px;
+button{
+    background:green;
+    color:white;
+    border:none;
+    padding:9px 16px;
+    border-radius:15px;
+    margin:5px;
+    cursor:pointer;
+}
+.reject{
+    background:red;
 }
 </style>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+const supabase = window.supabase.createClient(
+  "https://PROJECT_ID.supabase.co",
+  "ANON_KEY_YAWE"
+);
+
+async function approveWithdrawal(id){
+    const { error } = await supabase
+        .from("Payments")
+        .update({status:"Approved"})
+        .eq("id", id);
+
+    if(error){
+        alert(error.message);
+    }else{
+        alert("Withdrawal Approved");
+        location.reload();
+    }
+}
+
+async function rejectWithdrawal(id){
+    const { error } = await supabase
+        .from("Payments")
+        .update({status:"Rejected"})
+        .eq("id", id);
+
+    if(error){
+        alert(error.message);
+    }else{
+        alert("Withdrawal Rejected");
+        location.reload();
+    }
+}
+</script>
 
 </head>
 
@@ -47,6 +86,18 @@ button {
 <h3>Payments</h3>
 <p>Pending Payments: 0</p>
 <button>Check Payments</button>
+</div>
+
+<div class="box">
+<h3>Withdrawal Request</h3>
+
+<p>Phone: 078XXXXXXX</p>
+<p>Amount: 30,000 Frw</p>
+<p>Status: Pending</p>
+
+<button onclick="approveWithdrawal(1)">Approve</button>
+<button class="reject" onclick="rejectWithdrawal(1)">Reject</button>
+
 </div>
 
 </body>
