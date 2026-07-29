@@ -1,128 +1,143 @@
-<!<!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Payment</title>
+<title>Payment Methods</title>
 
 <style>
-body {
-  font-family: Arial;
-  background: #eeeeee;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
 }
 
-.payment-box {
-  width: 90%;
-  max-width: 420px;
-  margin: 50px auto;
-  background: white;
-  padding: 25px;
-  text-align: center;
-  border-radius: 15px;
+body{
+    background:#f2f2f2;
 }
 
-.code {
-  background: #f1f1f1;
-  padding: 15px;
-  border-radius: 8px;
-  font-size: 18px;
-  font-weight: bold;
+.card{
+    width:90%;
+    max-width:420px;
+    margin:40px auto;
+    background:#fff;
+    border-radius:25px;
+    padding:30px 20px;
+    text-align:center;
 }
 
-input {
-  width: 90%;
-  padding: 12px;
-  margin: 8px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+h1{
+    font-size:30px;
+    font-weight:bold;
+    margin-bottom:30px;
 }
 
-button {
-  padding: 12px 35px;
-  background: green;
-  color: white;
-  border: none;
-  border-radius: 8px;
+.method{
+    font-size:18px;
+    margin-bottom:20px;
+}
+
+.ussd{
+    background:#f3f3f3;
+    padding:22px;
+    border-radius:15px;
+    font-size:24px;
+    font-weight:bold;
+    margin-bottom:35px;
+}
+
+.name-title{
+    font-size:22px;
+    font-weight:bold;
+}
+
+.name{
+    font-size:20px;
+    margin-top:5px;
+    margin-bottom:25px;
+}
+
+hr{
+    border:none;
+    border-top:1px solid #bbb;
+    margin-bottom:30px;
+}
+
+.confirm{
+    font-size:24px;
+    font-weight:bold;
+    margin-bottom:25px;
+}
+
+input{
+    width:100%;
+    height:55px;
+    margin-bottom:18px;
+    border:1px solid #ccc;
+    border-radius:10px;
+    padding:15px;
+    font-size:18px;
+}
+
+button{
+    width:75%;
+    height:55px;
+    background:green;
+    color:#fff;
+    border:none;
+    border-radius:12px;
+    font-size:20px;
+    cursor:pointer;
 }
 </style>
-
 </head>
 
 <body>
 
-<div class="payment-box">
+<div class="card">
 
-<h2>PAYMENT METHODS</h2>
+<h1>PAYMENT METHODS</h1>
 
-<p>Shyura ukoresheje MTN Mobile Money</p>
+<div class="method">
+Shyura ukoresheje MTN Mobile Money
+</div>
 
-<div class="code">
+<div class="ussd">
 *182*1*1*0784006795#
 </div>
 
-<br>
+<div class="name-title">NAME:</div>
 
-<p><b>NAME:</b><br>
-Super Viser Sylivel</p>
+<div class="name">
+Super Viser Sylivel
+</div>
 
 <hr>
 
-<h3>Confirm Payment</h3>
+<div class="confirm">Confirm Payment</div>
 
-<input type="text" id="name" placeholder="Amazina yawe">
+<form onsubmit="submitPayment(event)">
+<input type="text" placeholder="Amazina yawe" required>
+<input type="tel" placeholder="Numero ya telefone" required>
+<input type="text" placeholder="Transaction ID" required>
 
-<input type="tel" id="phone" placeholder="Numero ya telefone">
-
-<input type="text" id="transactionId" placeholder="Transaction ID">
-
-<br><br>
-
-<button onclick="confirmPayment()">Confirm Payment</button>
+<button type="submit">Confirm Payment</button>
+</form>
 
 </div>
 
+<script>
+function submitPayment(e){
+    e.preventDefault();
 
-<script type="module">
+    alert("Payment submitted successfully!");
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
-
-const firebaseConfig = {
-  apiKey: "AIzaSyDHn_vWtju3EAsSRdehMaKmUqV4OpQwlDM",
-  authDomain: "travorium-5a3f1.firebaseapp.com",
-  projectId: "travorium-5a3f1",
-  storageBucket: "travorium-5a3f1.firebasestorage.app",
-  messagingSenderId: "821399597839",
-  appId: "1:821399597839:web:2464b540f0af266e94847a"
-};
-
-
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-
-
-window.confirmPayment = async function(){
-
-  await addDoc(collection(db, "users"), {
-
-    name: document.getElementById("name").value,
-
-    phone: document.getElementById("phone").value,
-
-    transactionId: document.getElementById("transactionId").value,
-
-    status: "Pending"
-
-  });
-
-
-  alert("Payment submitted. Waiting for approval.");
-
-};
-
+    window.location.href = "dashboard.html";
+}
 </script>
-
+}
+</script>
 
 </body>
 </html>
