@@ -1,77 +1,149 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Travorium Dashboard</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard</title>
 
 <style>
-body {
-    font-family: Arial;
-    background: #f2f2f2;
-    text-align: center;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
 }
 
-h1 {
-    color: #008000;
+body{
+background:#f4f4f4;
+display:flex;
+justify-content:center;
+padding:20px;
 }
 
-.dashboard {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
-    padding: 50px;
+.dashboard{
+width:100%;
+max-width:420px;
+background:#fff;
+border-radius:25px;
+padding:20px;
+box-shadow:0 5px 20px rgba(0,0,0,.1);
 }
 
-.box {
-    background: green;
-    color: white;
-    padding: 25px;
-    border-radius: 15px;
-    font-size: 20px;
-    font-weight: bold;
+.top{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:20px;
 }
 
-.pending {
-    background: orange;
+.top h1{
+font-size:35px;
 }
 
-.withdrawal {
-    background: blue;
+.dark{
+font-size:30px;
+cursor:pointer;
 }
 
-.account {
-    background: #333;
+.card{
+border-radius:25px;
+padding:25px;
+color:#fff;
+margin-bottom:20px;
+}
+
+.balance{
+background:linear-gradient(90deg,#5d4bff,#8b5cf6);
+}
+
+.balance h3{
+font-size:20px;
+font-weight:normal;
+}
+
+.balance h2{
+margin-top:10px;
+font-size:42px;
+}
+
+.row{
+display:flex;
+gap:15px;
+margin-bottom:20px;
+}
+
+.small{
+flex:1;
+padding:25px;
+border-radius:25px;
+color:#fff;
+}
+
+.withdraw{
+background:#171d2e;
+}
+
+.deposit{
+background:#2dd36f;
+}
+
+.small h3{
+font-size:20px;
+font-weight:normal;
+}
+
+.small h2{
+margin-top:15px;
+font-size:36px;
+}
+
+.invest{
+background:linear-gradient(90deg,#ff7b00,#ff3d5a);
+text-align:center;
+}
+
+.invest h3{
+font-size:22px;
+}
+
+.invest h2{
+font-size:45px;
+margin:15px 0;
+}
+
+button{
+background:green;
+color:white;
+border:none;
+padding:15px 40px;
+font-size:20px;
+border-radius:15px;
+cursor:pointer;
 }
 </style>
 
 </head>
-
 <body>
-
-<h1>Travorium Dashboard</h1>
 
 <div class="dashboard">
 
-<div class="box">
-Balance<br>
-30,000 Frw
+<div class="top">
+<h1>Dashboard</h1>
+<div class="dark">🌙</div>
 </div>
 
-<div class="box pending">
-Pending<br>
-0 Frw
+<div class="card balance">
+<h3>Account Balance</h3>
+<h2>RWF 30,000</h2>
 </div>
 
-<div class="box withdrawal">
-Withdrawal<br>
-0 Frw
+<div class="row">
+
+<div class="small withdraw">
+<h3>Total Withdrawals</h3>
+<h2>RWF 0</h2>
 </div>
 
-<div class="box account">
-Account<br>
-Active
-</div>
-
-</div>
-
-</body>
-</html>
+<div class="small deposit">
+<h3>Deposit Wallet</h3>
+<h2>RWF 0</
