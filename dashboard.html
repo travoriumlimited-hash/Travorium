@@ -1,149 +1,146 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dashboard</title>
+
+<title>Travorium Dashboard</title>
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
-
 body{
-background:#f4f4f4;
-display:flex;
-justify-content:center;
-padding:20px;
+  font-family: Arial, sans-serif;
+  background:#f2f2f2;
+  margin:0;
 }
 
-.dashboard{
-width:100%;
-max-width:420px;
-background:#fff;
-border-radius:25px;
-padding:20px;
-box-shadow:0 5px 20px rgba(0,0,0,.1);
+.header{
+  background:#0b57d0;
+  color:white;
+  padding:20px;
+  text-align:center;
 }
 
-.top{
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin-bottom:20px;
-}
-
-.top h1{
-font-size:35px;
-}
-
-.dark{
-font-size:30px;
-cursor:pointer;
+.container{
+  width:90%;
+  max-width:450px;
+  margin:20px auto;
 }
 
 .card{
-border-radius:25px;
-padding:25px;
-color:#fff;
-margin-bottom:20px;
+  background:white;
+  padding:20px;
+  margin:15px 0;
+  border-radius:15px;
+  box-shadow:0 3px 10px #ccc;
 }
 
 .balance{
-background:linear-gradient(90deg,#5d4bff,#8b5cf6);
+  font-size:28px;
+  font-weight:bold;
+  color:#0b57d0;
 }
 
-.balance h3{
-font-size:20px;
-font-weight:normal;
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
 }
 
-.balance h2{
-margin-top:10px;
-font-size:42px;
-}
-
-.row{
-display:flex;
-gap:15px;
-margin-bottom:20px;
-}
-
-.small{
-flex:1;
-padding:25px;
-border-radius:25px;
-color:#fff;
-}
-
-.withdraw{
-background:#171d2e;
-}
-
-.deposit{
-background:#2dd36f;
-}
-
-.small h3{
-font-size:20px;
-font-weight:normal;
-}
-
-.small h2{
-margin-top:15px;
-font-size:36px;
-}
-
-.invest{
-background:linear-gradient(90deg,#ff7b00,#ff3d5a);
-text-align:center;
-}
-
-.invest h3{
-font-size:22px;
-}
-
-.invest h2{
-font-size:45px;
-margin:15px 0;
+.box{
+  background:white;
+  padding:20px;
+  border-radius:15px;
+  text-align:center;
+  box-shadow:0 3px 10px #ccc;
 }
 
 button{
-background:green;
-color:white;
-border:none;
-padding:15px 40px;
-font-size:20px;
-border-radius:15px;
-cursor:pointer;
+  width:100%;
+  padding:15px;
+  border:none;
+  border-radius:10px;
+  background:#0b57d0;
+  color:white;
+  font-size:16px;
+  margin-top:10px;
+}
+
+button:hover{
+  opacity:0.8;
 }
 </style>
 
 </head>
+
 <body>
 
-<div class="dashboard">
-
-<div class="top">
-<h1>Dashboard</h1>
-<div class="dark">🌙</div>
+<div class="header">
+<h2>TRAVORIUM</h2>
+<p>Dashboard</p>
 </div>
 
-<div class="card balance">
-<h3>Account Balance</h3>
-<h2>RWF 30,000</h2>
+<div class="container">
+
+<div class="card">
+<h3>Balance</h3>
+<div class="balance">30,000 Frw</div>
 </div>
 
-<div class="row">
 
-<div class="small withdraw">
-<h3>Total Withdrawals</h3>
-<h2>RWF 0</h2>
+<div class="grid">
+
+<div class="box">
+<h3>👥</h3>
+<p>Referrals</p>
+<b>0</b>
 </div>
 
-<div class="small deposit">
-<h3>Deposit Wallet</h3>
-<h2>RWF 0</
+<div class="box">
+<h3>⏳</h3>
+<p>Pending</p>
+<b>0 Frw</b>
+</div>
+
+<div class="box">
+<h3>💰</h3>
+<p>Earnings</p>
+<b>30,000 Frw</b>
+</div>
+
+<div class="box">
+<h3>✅</h3>
+<p>Status</p>
+<b>Active</b>
+</div>
+
+</div>
+
+
+<div class="card">
+<h3>Transaction History</h3>
+<p>No transactions yet</p>
+</div>
+
+
+<button onclick="withdraw()">Withdraw</button>
+
+<button onclick="logout()">Logout</button>
+
+
+</div>
+
+
+<script>
+
+function withdraw(){
+ alert("Withdrawal request submitted successfully");
+}
+
+
+function logout(){
+ window.location.href="index.html";
+}
+
+</script>
+
+</body>
+</html>
