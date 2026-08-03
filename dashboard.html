@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Travorium Dashboard</title>
@@ -62,10 +63,11 @@ button{
   color:white;
   font-size:16px;
   margin-top:10px;
+  cursor:pointer;
 }
 
 button:hover{
-  opacity:0.8;
+  opacity:0.9;
 }
 </style>
 
@@ -84,7 +86,6 @@ button:hover{
 <h3>Balance</h3>
 <div class="balance">56,000 Frw</div>
 </div>
-
 
 <div class="grid">
 
@@ -114,49 +115,26 @@ button:hover{
 
 </div>
 
-
 <div class="card">
 <h3>Transaction History</h3>
 <p>No transactions yet</p>
 </div>
 
+<button onclick="window.location.href='withdraw.html'">
+💸 Withdraw Money
+</button>
 
-<button onclick="withdraw()">Withdraw</button>
-
-<button onclick="logout()">Logout</button>
-
+<button onclick="logout()">
+🚪 Logout
+</button>
 
 </div>
 
-
 <script>
-
-function withdraw(){
- alert("Withdrawal request submitted successfully");
-}
-
-
 function logout(){
- window.location.href="index.html";
+    window.location.href = "index.html";
 }
-
 </script>
 
-</body><a href="withdraw.html" style="text-decoration:none;">
-  <button style="
-    width:100%;
-    max-width:320px;
-    padding:16px;
-    background:linear-gradient(135deg,#00d26a,#00a651);
-    color:white;
-    font-size:20px;
-    font-weight:bold;
-    border:none;
-    border-radius:15px;
-    cursor:pointer;
-    box-shadow:0 6px 15px rgba(0,0,0,0.3);
-  ">
-    💸 Withdraw Money
-  </button>
-</a>
+</body>
 </html>
