@@ -168,7 +168,7 @@ color:#16469f;
 transform:scale(.97);
 }
 
-/* BONUS & PROFIT */
+/* SUMMARY */
 
 .summary{
 display:grid;
@@ -361,7 +361,7 @@ font-weight:700;
 cursor:pointer;
 }
 
-/* ================= INVESTMENT MODAL ================= */
+/* MODAL */
 
 .modal{
 position:fixed;
@@ -386,18 +386,6 @@ background:white;
 border-radius:28px;
 padding:25px;
 box-shadow:0 25px 70px rgba(0,0,0,.25);
-animation:popup .25s ease;
-}
-
-@keyframes popup{
-from{
-opacity:0;
-transform:translateY(25px) scale(.96);
-}
-to{
-opacity:1;
-transform:translateY(0) scale(1);
-}
 }
 
 .modal-header{
@@ -451,11 +439,6 @@ background:#f8faff;
 margin-bottom:20px;
 }
 
-.amount-input:focus{
-border-color:#2870d8;
-box-shadow:0 0 0 4px rgba(40,112,216,.08);
-}
-
 .method-title{
 font-size:14px;
 font-weight:700;
@@ -476,12 +459,6 @@ display:flex;
 align-items:center;
 gap:12px;
 cursor:pointer;
-transition:.2s;
-}
-
-.method:hover{
-border-color:#4c80d8;
-background:#f7faff;
 }
 
 .method.selected{
@@ -538,11 +515,6 @@ color:white;
 font-size:15px;
 font-weight:800;
 cursor:pointer;
-box-shadow:0 9px 20px rgba(30,87,177,.22);
-}
-
-.continue-btn:active{
-transform:scale(.98);
 }
 
 .secure{
@@ -562,10 +534,6 @@ padding:22px 18px 19px;
 
 .logo{
 font-size:18px;
-}
-
-.profile{
-padding-right:9px;
 }
 
 .profile-name{
@@ -815,16 +783,18 @@ Investment
 </div>
 
 
+<!-- TASK BUTTON -->
+
 <div
 class="quick"
 onclick="window.location.href='tasks.html'">
 
 <div class="quick-icon q3">
-📺
+📋
 </div>
 
 <p>
-Video Tasks
+Tasks
 </p>
 
 </div>
@@ -855,10 +825,11 @@ Deposit
 
 <span class="live-dot"></span>
 
-LIVE TRANSACTIONS
+TRANSACTIONS
 
 </div>
 
+<!-- SAMPLE DATA -->
 
 <div class="transaction">
 
@@ -982,7 +953,7 @@ onclick="logout()">
 </div>
 
 
-<!-- INVESTMENT DEPOSIT MODAL -->
+<!-- DEPOSIT MODAL -->
 
 <div class="modal" id="depositModal">
 
@@ -1026,7 +997,6 @@ Select Payment Method
 
 
 <div class="methods">
-
 
 <div
 class="method"
@@ -1150,7 +1120,7 @@ document
 }
 
 
-/* SELECT PAYMENT METHOD */
+/* SELECT METHOD */
 
 function selectMethod(element,method){
 
@@ -1169,13 +1139,12 @@ selectedMethod = method;
 }
 
 
-/* CONTINUE TO PAYMENT */
+/* PAYMENT */
 
 function continuePayment(){
 
 let amount =
 document.getElementById("investmentAmount").value;
-
 
 if(amount === "" || Number(amount) <= 0){
 
@@ -1185,7 +1154,6 @@ return;
 
 }
 
-
 if(selectedMethod === ""){
 
 alert("Please select a payment method.");
@@ -1193,9 +1161,6 @@ alert("Please select a payment method.");
 return;
 
 }
-
-
-/* SAVE INVESTMENT INFORMATION */
 
 localStorage.setItem(
 "investmentAmount",
@@ -1207,9 +1172,6 @@ localStorage.setItem(
 selectedMethod
 );
 
-
-/* OPEN PAYMENT PAGE */
-
 window.location.href = "payment.html";
 
 }
@@ -1218,6 +1180,9 @@ window.location.href = "payment.html";
 /* LOGOUT */
 
 function logout(){
+
+localStorage.removeItem("investmentAmount");
+localStorage.removeItem("paymentMethod");
 
 window.location.href = "index.html";
 
