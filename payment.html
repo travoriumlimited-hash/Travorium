@@ -1,278 +1,475 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="rw">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Investment Payment</title>
+<title>Activation Payment</title>
 
 <style>
+
 *{
-    box-sizing:border-box;
     margin:0;
     padding:0;
+    box-sizing:border-box;
     font-family:Arial,sans-serif;
 }
 
 body{
     min-height:100vh;
-    background:#eef3fa;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:20px;
+    padding:20px 14px;
+    background:linear-gradient(135deg,#06152f,#0b57d0,#19a7ff);
+    color:white;
 }
 
-.payment-card{
+.container{
     width:100%;
-    max-width:450px;
-    background:white;
-    border-radius:25px;
-    padding:28px;
-    box-shadow:0 15px 40px rgba(20,60,120,.15);
+    max-width:430px;
+    margin:auto;
+}
+
+.header{
+    text-align:center;
+    padding:10px 0 22px;
 }
 
 .logo{
-    text-align:center;
-    color:#174a98;
-    font-size:23px;
-    font-weight:800;
-    margin-bottom:8px;
+    width:70px;
+    height:70px;
+    margin:auto;
+    border-radius:22px;
+    background:rgba(255,255,255,.15);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:32px;
 }
 
-.subtitle{
-    text-align:center;
-    color:#7a8799;
-    font-size:13px;
-    margin-bottom:25px;
+.header h1{
+    margin-top:15px;
+    font-size:28px;
 }
 
-.amount-box{
-    background:linear-gradient(135deg,#2965d5,#1647ad);
-    color:white;
-    border-radius:20px;
-    padding:22px;
+.header p{
+    margin-top:7px;
+    font-size:14px;
+    opacity:.8;
+}
+
+.card{
+    background:white;
+    color:#111;
+    border-radius:25px;
+    padding:24px 20px;
+    box-shadow:0 20px 55px rgba(0,0,0,.28);
+}
+
+.price-box{
     text-align:center;
+    padding:20px;
+    border-radius:18px;
+    background:linear-gradient(135deg,#eaf3ff,#f8fbff);
+    border:1px solid #dbeaff;
     margin-bottom:22px;
 }
 
-.amount-title{
-    font-size:13px;
-    opacity:.85;
+.price-box span{
+    color:#6b7280;
+    font-size:12px;
+    font-weight:bold;
 }
 
-.amount{
-    font-size:30px;
-    font-weight:800;
+.price-box h2{
+    margin-top:6px;
+    color:#0b57d0;
+    font-size:34px;
+}
+
+.section-title{
+    font-size:16px;
+    font-weight:bold;
+    margin-bottom:13px;
+}
+
+.payment-method{
+    padding:17px;
+    margin-bottom:14px;
+    border-radius:17px;
+    border:1px solid #e5e7eb;
+    background:#fff;
+    box-shadow:0 5px 15px rgba(0,0,0,.04);
+}
+
+.payment-method h3{
+    font-size:17px;
+    margin-bottom:10px;
+}
+
+.info{
+    color:#666;
+    font-size:13px;
+    margin-top:7px;
+}
+
+.payment-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:8px;
     margin-top:6px;
 }
 
-.payment-title{
-    color:#183e78;
-    font-size:17px;
-    font-weight:800;
-    margin-bottom:12px;
-}
-
-.method{
-    border:1px solid #dce5f2;
-    border-radius:17px;
-    padding:17px;
-    margin-bottom:12px;
-    background:#f8faff;
-}
-
-.method-name{
-    color:#174a98;
-    font-size:16px;
-    font-weight:800;
-    margin-bottom:8px;
-}
-
-.code{
-    background:#173f82;
-    color:white;
-    padding:13px;
-    border-radius:11px;
-    font-size:15px;
-    font-weight:700;
-    word-break:break-all;
+.number{
+    font-size:19px;
+    font-weight:bold;
 }
 
 .copy-btn{
-    width:100%;
-    margin-top:9px;
     border:0;
-    border-radius:10px;
-    padding:10px;
-    background:#dfeafd;
-    color:#174a98;
-    font-weight:700;
-    cursor:pointer;
-}
-
-.supervisor{
-    margin-top:18px;
-    background:#fff8e7;
-    border:1px solid #f2dfaa;
-    padding:15px;
-    border-radius:15px;
-    color:#735b19;
-    font-size:13px;
-}
-
-.supervisor strong{
-    color:#3c2d00;
-}
-
-.instruction{
-    margin-top:18px;
-    color:#59687d;
-    font-size:13px;
-    line-height:1.6;
-}
-
-.confirm{
-    width:100%;
-    border:0;
-    border-radius:15px;
-    padding:16px;
-    margin-top:20px;
-    background:linear-gradient(135deg,#2965d5,#1647ad);
+    background:#0b57d0;
     color:white;
-    font-size:16px;
-    font-weight:800;
+    padding:9px 13px;
+    border-radius:9px;
+    font-size:12px;
+    font-weight:bold;
     cursor:pointer;
 }
 
-.back{
+.copy-btn:active{
+    transform:scale(.95);
+}
+
+.code-box{
+    margin-top:12px;
+    padding:12px;
+    border-radius:10px;
+    background:#eef5ff;
+    color:#0b57d0;
+    font-weight:bold;
+    font-size:13px;
+    word-break:break-all;
+}
+
+.code-copy{
+    margin-top:8px;
     width:100%;
     border:0;
-    background:#eef3fa;
-    color:#31598f;
-    border-radius:15px;
-    padding:14px;
-    margin-top:10px;
-    font-weight:700;
+    padding:10px;
+    border-radius:9px;
+    background:#e5efff;
+    color:#0b57d0;
+    font-weight:bold;
     cursor:pointer;
 }
+
+label{
+    display:block;
+    margin-top:22px;
+    margin-bottom:7px;
+    font-size:14px;
+    font-weight:bold;
+}
+
+input{
+    width:100%;
+    height:53px;
+    padding:0 15px;
+    border:1px solid #d6d9df;
+    border-radius:12px;
+    outline:none;
+    font-size:15px;
+}
+
+input:focus{
+    border-color:#0b57d0;
+    box-shadow:0 0 0 3px rgba(11,87,208,.10);
+}
+
+.confirm-btn{
+    width:100%;
+    height:56px;
+    margin-top:18px;
+    border:0;
+    border-radius:14px;
+    background:linear-gradient(135deg,#0b57d0,#168cff);
+    color:#fff;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.security{
+    text-align:center;
+    color:#777;
+    font-size:12px;
+    line-height:1.5;
+    margin-top:17px;
+}
+
+.footer{
+    text-align:center;
+    font-size:12px;
+    opacity:.7;
+    margin-top:18px;
+}
+
 </style>
 </head>
 
 <body>
 
-<div class="payment-card">
+<div class="container">
 
-    <div class="logo">
-        SMART INCOME TRAINING
-    </div>
+    <div class="header">
 
-    <div class="subtitle">
-        Investment Payment
-    </div>
-
-    <div class="amount-box">
-        <div class="amount-title">
-            Investment Amount
+        <div class="logo">
+            💳
         </div>
 
-        <div class="amount" id="amount">
-            RWF 0
-        </div>
+        <h1>Activate Account</h1>
+
+        <p>
+            Complete your activation payment
+        </p>
+
     </div>
 
-    <div class="payment-title">
-        Choose your payment method
-    </div>
 
-    <div class="method">
+    <div class="card">
 
-        <div class="method-name">
-            📱 Tigo Payment
+        <!-- PRICE -->
+
+        <div class="price-box">
+
+            <span>ACTIVATION FEE</span>
+
+            <h2>4,100 RWF</h2>
+
         </div>
 
-        <div class="code" id="tigoCode">
-            *500*1*2*0792147292#
+
+        <div class="section-title">
+            Payment Methods
         </div>
 
-        <button class="copy-btn"
-        onclick="copyCode('tigoCode')">
-            Copy Payment Code
+
+        <!-- MTN -->
+
+        <div class="payment-method">
+
+            <h3>🟡 MTN Mobile Money</h3>
+
+            <div class="info">
+                Send <b>4,100 RWF</b> to:
+            </div>
+
+            <div class="payment-row">
+
+                <div class="number">
+                    2193457
+                </div>
+
+                <button
+                    class="copy-btn"
+                    onclick="copyText('2193457', this)">
+                    COPY
+                </button>
+
+            </div>
+
+            <div class="code-box">
+                *182*8*1*2193457#
+            </div>
+
+            <button
+                class="code-copy"
+                onclick="copyText('*182*8*1*2193457#', this)">
+                📋 COPY USSD CODE
+            </button>
+
+        </div>
+
+
+        <!-- TIGO -->
+
+        <div class="payment-method">
+
+            <h3>🔵 Tigo / Airtel Money</h3>
+
+            <div class="info">
+                Send <b>4,100 RWF</b> to:
+            </div>
+
+            <div class="payment-row">
+
+                <div class="number">
+                    0792147292
+                </div>
+
+                <button
+                    class="copy-btn"
+                    onclick="copyText('0792147292', this)">
+                    COPY
+                </button>
+
+            </div>
+
+            <div class="code-box">
+                *500*1*2*0792147292#
+            </div>
+
+            <button
+                class="code-copy"
+                onclick="copyText('*500*1*2*0792147292#', this)">
+                📋 COPY USSD CODE
+            </button>
+
+        </div>
+
+
+        <!-- TRANSACTION ID -->
+
+        <label for="transaction">
+            Transaction ID
+        </label>
+
+        <input
+            type="text"
+            id="transaction"
+            placeholder="Enter Transaction ID"
+            autocomplete="off"
+        >
+
+
+        <!-- CONFIRM -->
+
+        <button
+            class="confirm-btn"
+            onclick="confirmPayment()">
+
+            ✓ Confirm Payment
+
         </button>
 
-    </div>
 
-    <div class="method">
+        <div class="security">
 
-        <div class="method-name">
-            📱 MTN Payment
+            🔒 Payment information is securely submitted.
+
+            <br>
+
+            Make sure your Transaction ID is correct.
+
         </div>
 
-        <div class="code" id="mtnCode">
-            *182*8*1*2193457#
-        </div>
-
-        <button class="copy-btn"
-        onclick="copyCode('mtnCode')">
-            Copy Payment Code
-        </button>
-
     </div>
 
-    <div class="supervisor">
-        👤 <strong>SUPER VISER:</strong> CHARLOTTE
+
+    <div class="footer">
+        © 2026 Smart Income Training
     </div>
-
-    <div class="instruction">
-        Use one of the payment methods above to make your
-        investment payment. Keep your payment confirmation
-        after completing the transaction.
-    </div>
-
-    <button class="confirm" onclick="paymentSubmitted()">
-        I HAVE COMPLETED PAYMENT
-    </button>
-
-    <button class="back"
-    onclick="window.location.href='index.html'">
-        ← Back to Dashboard
-    </button>
 
 </div>
 
 
 <script>
 
-const amount =
-localStorage.getItem("investmentAmount");
+/* COPY FUNCTION */
 
-if(amount){
-    document.getElementById("amount").innerText =
-        "RWF " + Number(amount).toLocaleString();
+function copyText(text, button){
+
+    navigator.clipboard.writeText(text)
+    .then(function(){
+
+        const oldText = button.innerText;
+
+        button.innerText = "✓ COPIED";
+
+        setTimeout(function(){
+
+            button.innerText = oldText;
+
+        },1500);
+
+    })
+    .catch(function(){
+
+        /* Backup method */
+
+        const input = document.createElement("input");
+
+        input.value = text;
+
+        document.body.appendChild(input);
+
+        input.select();
+
+        document.execCommand("copy");
+
+        document.body.removeChild(input);
+
+        const oldText = button.innerText;
+
+        button.innerText = "✓ COPIED";
+
+        setTimeout(function(){
+
+            button.innerText = oldText;
+
+        },1500);
+
+    });
+
 }
 
-function copyCode(id){
 
-    const code =
-    document.getElementById(id).innerText;
+/* CONFIRM PAYMENT */
 
-    navigator.clipboard.writeText(code);
+function confirmPayment(){
 
-    alert("Payment code copied.");
-}
+    const transaction =
+        document
+        .getElementById("transaction")
+        .value
+        .trim();
 
-function paymentSubmitted(){
+    if(transaction === ""){
+
+        alert(
+            "Please enter your Transaction ID."
+        );
+
+        return;
+
+    }
 
     localStorage.setItem(
-        "investmentPaymentSubmitted",
-        "true"
+        "activationPayment",
+        "paid"
+    );
+
+    localStorage.setItem(
+        "transactionId",
+        transaction
+    );
+
+    localStorage.setItem(
+        "activationAmount",
+        "4100"
+    );
+
+    localStorage.setItem(
+        "accountStatus",
+        "activated"
     );
 
     alert(
-        "Payment submitted successfully. Please keep your payment confirmation."
+        "Payment submitted successfully!"
     );
 
-    window.location.href = "index.html";
+    window.location.href =
+        "dashboard.html";
+
 }
 
 </script>
