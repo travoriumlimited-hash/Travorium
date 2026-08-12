@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Tasks</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#f1f4fa;
+    font-family:Arial,sans-serif;
+}
+
+.container{
+    max-width:700px;
+    margin:auto;
+    padding:20px;
+}
+
+.header{
+    background:white;
+    padding:18px;
+    border-radius:18px;
+    margin-bottom:20px;
+    text-align:center;
+}
+
+.header h1{
+    color:#17448e;
+    font-size:24px;
+}
+
+.tasks{
+    display:grid;
+    gap:18px;
+}
+
+.task{
+    background:white;
+    padding:12px;
+    border-radius:20px;
+    box-shadow:0 7px 20px rgba(0,0,0,.08);
+}
+
+.task img{
+    width:100%;
+    display:block;
+    border-radius:15px;
+}
+
+.back{
+    display:block;
+    margin-top:20px;
+    width:100%;
+    padding:14px;
+    border:0;
+    border-radius:14px;
+    background:#17448e;
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>📋 Tasks</h1>
+    </div>
+
+    <div class="tasks">
+
+        <div class="task">
+            <img src="./task1.jpg" alt="Task 1">
+        </div>
+
+        <div class="task">
+            <img src="./task2.jpg" alt="Task 2">
+        </div>
+
+        <div class="task">
+            <img src="./task3.jpg" alt="Task 3">
+        </div>
+
+    </div>
+
+    <button class="back" onclick="window.location.href='index.html'">
+        ← Back to Dashboard
+    </button>
+
+</div>
+
+</body>
+</html>
