@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Payment Methods</title>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
 *{
@@ -31,12 +32,11 @@ background:#fff;
 border-radius:25px;
 overflow:hidden;
 box-shadow:0 15px 35px rgba(0,0,0,.25);
-animation:fade .5s ease;
 }
 
 .header{
 background:linear-gradient(135deg,#00695c,#00c853);
-color:#fff;
+color:white;
 padding:35px 20px;
 text-align:center;
 }
@@ -68,15 +68,46 @@ margin-bottom:8px;
 }
 
 .ussd{
-font-size:28px;
+font-size:25px;
 font-weight:bold;
 color:#009688;
+word-break:break-all;
+margin-bottom:14px;
 }
 
 .name{
 font-size:22px;
 font-weight:bold;
 color:#333;
+}
+
+.pay-btn{
+width:100%;
+height:52px;
+border:0;
+border-radius:12px;
+background:linear-gradient(135deg,#009688,#00c853);
+color:white;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.pay-btn i{
+margin-right:8px;
+}
+
+.copy-btn{
+width:100%;
+height:45px;
+margin-top:10px;
+border:1px solid #009688;
+border-radius:12px;
+background:white;
+color:#009688;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
 }
 
 label{
@@ -106,15 +137,9 @@ border:1px solid #ccc;
 border-radius:12px;
 font-size:17px;
 outline:none;
-transition:.3s;
 }
 
-.input-box input:focus{
-border-color:#00c853;
-box-shadow:0 0 8px rgba(0,200,83,.3);
-}
-
-button{
+button[type="submit"]{
 width:100%;
 height:58px;
 border:none;
@@ -124,12 +149,6 @@ color:white;
 font-size:19px;
 font-weight:bold;
 cursor:pointer;
-transition:.3s;
-}
-
-button:hover{
-transform:translateY(-2px);
-box-shadow:0 8px 20px rgba(0,0,0,.2);
 }
 
 .footer{
@@ -163,39 +182,110 @@ transform:translateY(0);
 
 <div class="content">
 
+<!-- MTN -->
 <div class="info">
+
 <h4>Pay 4100 RWF via MTN Mobile Money</h4>
-<div class="ussd">*182*8*1*2193457#</div>
+
+<div class="ussd">
+*182*8*1*2193457#
+</div>
+
+<button class="pay-btn"
+onclick="payMTN()">
+<i class="fas fa-mobile-screen-button"></i>
+Kanda Wishyure
+</button>
+
+<button class="copy-btn"
+onclick="copyCode('*182*8*1*2193457#')">
+<i class="fas fa-copy"></i>
+Koporora USSD
+</button>
+
 </div>
 
 <div class="info">
-<h4>Receiver Name</h4>
-<div class="name">Supervisor Charlotte</div>
+
+<h4>MTN Receiver Name</h4>
+
+<div class="name">
+Supervisor Charlotte
 </div>
 
+</div>
+
+
+<!-- TIGO -->
+<div class="info">
+
+<h4>Pay 4100 RWF via Tigo Cash</h4>
+
+<div class="ussd">
+*500*1*2*0792147292#
+</div>
+
+<button class="pay-btn"
+onclick="payTigo()">
+<i class="fas fa-mobile-screen-button"></i>
+Kanda Wishyure
+</button>
+
+<button class="copy-btn"
+onclick="copyCode('*500*1*2*0792147292#')">
+<i class="fas fa-copy"></i>
+Koporora USSD
+</button>
+
+</div>
+
+<div class="info">
+
+<h4>Tigo Receiver Name</h4>
+
+<div class="name">
+Charlotte
+</div>
+
+</div>
+
+
+<!-- FORM -->
 <form onsubmit="submitPayment(event)">
 
 <label>Full Name</label>
+
 <div class="input-box">
 <i class="fas fa-user"></i>
-<input type="text" placeholder="Enter your name" required>
+<input
+type="text"
+placeholder="Enter your name"
+required>
 </div>
 
 <label>Phone Number</label>
+
 <div class="input-box">
 <i class="fas fa-phone"></i>
-<input type="tel" placeholder="07XXXXXXXX" required>
+<input
+type="tel"
+placeholder="07XXXXXXXX"
+required>
 </div>
 
 <label>Transaction ID</label>
+
 <div class="input-box">
 <i class="fas fa-receipt"></i>
-<input type="text" placeholder="Enter Transaction ID" required>
+<input
+type="text"
+placeholder="Enter Transaction ID"
+required>
 </div>
 
 <button type="submit">
 <i class="fas fa-check-circle"></i>
- Confirm Payment
+Confirm Payment
 </button>
 
 </form>
@@ -205,15 +295,87 @@ Secure Payment Verification
 </div>
 
 </div>
-
 </div>
 
+
 <script>
-function submitPayment(e){
-e.preventDefault();
-alert("Payment submitted successfully!");
-window.location.href="dashboard.html";
+
+function payMTN(){
+
+copyCode("*182*8*1*2193457#");
+
+alert(
+"USSD code copied!\n\n" +
+"Open your Phone/Dialer and enter:\n" +
+"*182*8*1*2193457#"
+);
+
 }
+
+function payTigo(){
+
+copyCode("*500*1*2*0792147292#");
+
+alert(
+"USSD code copied!\n\n" +
+"Open your Phone/Dialer and enter:\n" +
+"*500*1*2*0792147292#"
+);
+
+}
+
+function copyCode(code){
+
+if(navigator.clipboard){
+
+navigator.clipboard.writeText(code)
+.then(function(){
+
+alert("USSD code copied successfully!");
+
+})
+.catch(function(){
+
+fallbackCopy(code);
+
+});
+
+}else{
+
+fallbackCopy(code);
+
+}
+
+}
+
+function fallbackCopy(code){
+
+var textArea=document.createElement("textarea");
+
+textArea.value=code;
+
+document.body.appendChild(textArea);
+
+textArea.select();
+
+document.execCommand("copy");
+
+document.body.removeChild(textArea);
+
+alert("USSD code copied successfully!");
+
+}
+
+function submitPayment(e){
+
+e.preventDefault();
+
+alert("Payment submitted successfully!");
+
+window.location.href="dashboard.html";
+
+}
+
 </script>
 
 </body>
