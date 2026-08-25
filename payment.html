@@ -45,6 +45,12 @@ body{
     font-size:32px;
 }
 
+.name{
+    margin-top:10px;
+    font-size:18px;
+    font-weight:bold;
+}
+
 .header h1{
     margin-top:15px;
     font-size:28px;
@@ -91,75 +97,15 @@ body{
     margin-bottom:13px;
 }
 
-.payment-method{
+.info-box{
     padding:17px;
-    margin-bottom:14px;
     border-radius:17px;
     border:1px solid #e5e7eb;
     background:#fff;
     box-shadow:0 5px 15px rgba(0,0,0,.04);
-}
-
-.payment-method h3{
-    font-size:17px;
-    margin-bottom:10px;
-}
-
-.info{
-    color:#666;
-    font-size:13px;
-    margin-top:7px;
-}
-
-.payment-row{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:8px;
-    margin-top:6px;
-}
-
-.number{
-    font-size:19px;
-    font-weight:bold;
-}
-
-.copy-btn{
-    border:0;
-    background:#0b57d0;
-    color:white;
-    padding:9px 13px;
-    border-radius:9px;
-    font-size:12px;
-    font-weight:bold;
-    cursor:pointer;
-}
-
-.copy-btn:active{
-    transform:scale(.95);
-}
-
-.code-box{
-    margin-top:12px;
-    padding:12px;
-    border-radius:10px;
-    background:#eef5ff;
-    color:#0b57d0;
-    font-weight:bold;
-    font-size:13px;
-    word-break:break-all;
-}
-
-.code-copy{
-    margin-top:8px;
-    width:100%;
-    border:0;
-    padding:10px;
-    border-radius:9px;
-    background:#e5efff;
-    color:#0b57d0;
-    font-weight:bold;
-    cursor:pointer;
+    color:#555;
+    font-size:14px;
+    line-height:1.6;
 }
 
 label{
@@ -224,7 +170,11 @@ input:focus{
 
         <div class="logo">
             💳
-        </div>Charlotte 
+        </div>
+
+        <div class="name">
+            Elia
+        </div>
 
         <h1>Activate Account</h1>
 
@@ -237,8 +187,6 @@ input:focus{
 
     <div class="card">
 
-        <!-- PRICE -->
-
         <div class="price-box">
 
             <span>ACTIVATION FEE</span>
@@ -249,85 +197,17 @@ input:focus{
 
 
         <div class="section-title">
-            Payment Methods
+            Payment Information
         </div>
 
 
-        <!-- MTN -->
-
-        <div class="payment-method">
-
-            <h3>🟡 MTN Mobile Money</h3>
-
-            <div class="info">
-                Send <b>4,100 RWF</b> to:
-            </div>
-
-            <div class="payment-row">
-
-                <div class="number">
-                    2193457
-                </div>
-
-                <button
-                    class="copy-btn"
-                    onclick="copyText('2193457', this)">
-                    COPY
-                </button>
-
-            </div>
-
-            <div class="code-box">
-                *182*8*1*2193457#
-            </div>
-
-            <button
-                class="code-copy"
-                onclick="copyText('*182*8*1*2193457#', this)">
-                📋 COPY USSD CODE
-            </button>
-
+        <div class="info-box">
+            Please complete your activation payment
+            before submitting your Transaction ID.
+            <br><br>
+            Reference Number: <b>2229954</b>
         </div>
 
-
-        <!-- TIGO -->
-
-        <div class="payment-method">
-
-            <h3>🔵 Tigo / Airtel Money</h3>
-
-            <div class="info">
-                Send <b>4,100 RWF</b> to:
-            </div>
-
-            <div class="payment-row">
-
-                <div class="number">
-                    0792147292
-                </div>
-
-                <button
-                    class="copy-btn"
-                    onclick="copyText('0792147292', this)">
-                    COPY
-                </button>
-
-            </div>
-
-            <div class="code-box">
-                *500*1*2*0792147292#
-            </div>
-
-            <button
-                class="code-copy"
-                onclick="copyText('*500*1*2*0792147292#', this)">
-                📋 COPY USSD CODE
-            </button>
-
-        </div>
-
-
-        <!-- TRANSACTION ID -->
 
         <label for="transaction">
             Transaction ID
@@ -340,8 +220,6 @@ input:focus{
             autocomplete="off"
         >
 
-
-        <!-- CONFIRM -->
 
         <button
             class="confirm-btn"
@@ -373,57 +251,6 @@ input:focus{
 
 
 <script>
-
-/* COPY FUNCTION */
-
-function copyText(text, button){
-
-    navigator.clipboard.writeText(text)
-    .then(function(){
-
-        const oldText = button.innerText;
-
-        button.innerText = "✓ COPIED";
-
-        setTimeout(function(){
-
-            button.innerText = oldText;
-
-        },1500);
-
-    })
-    .catch(function(){
-
-        /* Backup method */
-
-        const input = document.createElement("input");
-
-        input.value = text;
-
-        document.body.appendChild(input);
-
-        input.select();
-
-        document.execCommand("copy");
-
-        document.body.removeChild(input);
-
-        const oldText = button.innerText;
-
-        button.innerText = "✓ COPIED";
-
-        setTimeout(function(){
-
-            button.innerText = oldText;
-
-        },1500);
-
-    });
-
-}
-
-
-/* CONFIRM PAYMENT */
 
 function confirmPayment(){
 
