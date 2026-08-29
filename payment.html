@@ -4,10 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Activation Payment</title>
+<title>Secure Payment</title>
 
 <style>
-
 *{
     margin:0;
     padding:0;
@@ -17,148 +16,336 @@
 
 body{
     min-height:100vh;
-    padding:20px 14px;
-    background:linear-gradient(135deg,#06152f,#0b57d0,#19a7ff);
-    color:white;
+    padding:25px 15px 45px;
+    background:
+        radial-gradient(circle at 10% 0%,#5da9ff55,transparent 30%),
+        linear-gradient(145deg,#06142d,#0b57d0 55%,#16b7ff);
 }
 
 .container{
     width:100%;
-    max-width:430px;
+    max-width:520px;
     margin:auto;
 }
+
+/* HEADER */
 
 .header{
     text-align:center;
-    padding:10px 0 22px;
+    color:white;
+    margin-bottom:22px;
 }
 
 .logo{
-    width:70px;
-    height:70px;
+    width:72px;
+    height:72px;
     margin:auto;
-    border-radius:22px;
-    background:rgba(255,255,255,.15);
     display:flex;
     align-items:center;
     justify-content:center;
-    font-size:32px;
-}
-
-.name{
-    margin-top:10px;
-    font-size:18px;
-    font-weight:bold;
+    border-radius:22px;
+    background:rgba(255,255,255,.16);
+    border:1px solid rgba(255,255,255,.25);
+    backdrop-filter:blur(12px);
+    font-size:31px;
+    box-shadow:0 15px 35px #0003;
 }
 
 .header h1{
     margin-top:15px;
-    font-size:28px;
+    font-size:29px;
 }
 
 .header p{
     margin-top:7px;
     font-size:14px;
-    opacity:.8;
+    opacity:.82;
 }
 
-.card{
-    background:white;
-    color:#111;
-    border-radius:25px;
-    padding:24px 20px;
-    box-shadow:0 20px 55px rgba(0,0,0,.28);
+/* MAIN CARD */
+
+.main-card{
+    background:#fff;
+    border-radius:30px;
+    padding:22px;
+    box-shadow:0 25px 65px #0004;
 }
 
-.price-box{
-    text-align:center;
-    padding:20px;
-    border-radius:18px;
-    background:linear-gradient(135deg,#eaf3ff,#f8fbff);
-    border:1px solid #dbeaff;
-    margin-bottom:22px;
+/* SUPERVISOR */
+
+.supervisor{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 17px;
+    margin-bottom:18px;
+    border-radius:17px;
+    background:#f4f8ff;
+    border:1px solid #e0eaff;
 }
 
-.price-box span{
-    color:#6b7280;
+.supervisor small{
+    color:#718096;
     font-size:12px;
-    font-weight:bold;
 }
 
-.price-box h2{
+.supervisor strong{
+    color:#0757b8;
+    font-size:16px;
+}
+
+/* AMOUNT */
+
+.amount{
+    text-align:center;
+    padding:21px 15px;
+    border-radius:22px;
+    background:linear-gradient(135deg,#eef6ff,#f8fbff);
+    border:1px solid #dceaff;
+    margin-bottom:20px;
+}
+
+.amount span{
+    display:block;
+    color:#7b8794;
+    font-size:11px;
+    font-weight:bold;
+    letter-spacing:1px;
+}
+
+.amount h2{
     margin-top:6px;
-    color:#0b57d0;
+    color:#0757b8;
     font-size:34px;
 }
 
+/* SECTION */
+
 .section-title{
-    font-size:16px;
+    font-size:17px;
     font-weight:bold;
     margin-bottom:13px;
 }
 
-.info-box{
-    padding:17px;
-    border-radius:17px;
+/* PAYMENT METHOD */
+
+.payment{
+    padding:18px;
+    margin-bottom:14px;
     border:1px solid #e5e7eb;
+    border-radius:21px;
     background:#fff;
-    box-shadow:0 5px 15px rgba(0,0,0,.04);
-    color:#555;
+    box-shadow:0 5px 16px #0000000a;
+}
+
+.method{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:17px;
+}
+
+.method-icon{
+    width:44px;
+    height:44px;
+    border-radius:14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
+    font-size:20px;
+}
+
+.mtn{
+    background:#ffd21c;
+}
+
+.airtel{
+    background:#e21b2d;
+    color:white;
+}
+
+.method-name{
+    font-size:16px;
+    font-weight:bold;
+}
+
+.method-sub{
+    margin-top:3px;
+    color:#8a94a3;
+    font-size:11px;
+}
+
+/* NUMBER */
+
+.send-text{
+    color:#777;
+    font-size:12px;
+    margin-bottom:6px;
+}
+
+.number-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+}
+
+.number{
+    font-size:23px;
+    font-weight:bold;
+    letter-spacing:.4px;
+}
+
+.copy{
+    border:0;
+    border-radius:12px;
+    padding:10px 15px;
+    background:#edf4ff;
+    color:#0757b8;
+    font-size:11px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* USSD */
+
+.ussd{
+    margin-top:15px;
+    padding:13px 14px;
+    border-radius:13px;
+    background:#f5f8fc;
+    color:#0757b8;
     font-size:14px;
-    line-height:1.6;
+    font-weight:bold;
+    word-break:break-all;
+}
+
+.copy-ussd{
+    width:100%;
+    margin-top:9px;
+    padding:12px;
+    border:0;
+    border-radius:12px;
+    background:#0757b8;
+    color:white;
+    font-size:12px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* TRANSACTION */
+
+.transaction-section{
+    margin-top:22px;
 }
 
 label{
     display:block;
-    margin-top:22px;
-    margin-bottom:7px;
+    margin-bottom:8px;
     font-size:14px;
     font-weight:bold;
 }
 
+.input-box{
+    position:relative;
+}
+
+.input-box span{
+    position:absolute;
+    left:15px;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:18px;
+}
+
 input{
     width:100%;
-    height:53px;
-    padding:0 15px;
-    border:1px solid #d6d9df;
-    border-radius:12px;
+    height:56px;
+    padding:0 15px 0 44px;
+    border:1px solid #d8dee8;
+    border-radius:15px;
     outline:none;
     font-size:15px;
 }
 
 input:focus{
-    border-color:#0b57d0;
-    box-shadow:0 0 0 3px rgba(11,87,208,.10);
+    border-color:#0757b8;
+    box-shadow:0 0 0 4px #0757b814;
 }
 
-.confirm-btn{
+/* BUTTON */
+
+.confirm{
     width:100%;
-    height:56px;
-    margin-top:18px;
+    height:58px;
+    margin-top:17px;
     border:0;
-    border-radius:14px;
-    background:linear-gradient(135deg,#0b57d0,#168cff);
-    color:#fff;
+    border-radius:16px;
+    background:linear-gradient(135deg,#0757b8,#159dff);
+    color:white;
     font-size:16px;
     font-weight:bold;
     cursor:pointer;
+    box-shadow:0 10px 24px #0757b833;
 }
+
+.confirm:active{
+    transform:scale(.98);
+}
+
+/* MESSAGE */
+
+.message{
+    display:none;
+    margin-top:13px;
+    padding:13px;
+    border-radius:13px;
+    background:#eef8f0;
+    color:#28733b;
+    text-align:center;
+    font-size:12px;
+}
+
+/* SECURITY */
 
 .security{
     text-align:center;
-    color:#777;
-    font-size:12px;
-    line-height:1.5;
     margin-top:17px;
+    color:#8a94a3;
+    font-size:11px;
+    line-height:1.6;
 }
+
+/* FOOTER */
 
 .footer{
     text-align:center;
-    font-size:12px;
+    color:white;
     opacity:.7;
+    font-size:11px;
     margin-top:18px;
 }
 
+@media(max-width:430px){
+
+    .main-card{
+        padding:18px;
+        border-radius:27px;
+    }
+
+    .number{
+        font-size:20px;
+    }
+
+    .header h1{
+        font-size:27px;
+    }
+
+    .amount h2{
+        font-size:31px;
+    }
+}
 </style>
 </head>
 
@@ -168,28 +355,30 @@ input:focus{
 
     <div class="header">
 
-        <div class="logo">
-            💳
-        </div>
+        <div class="logo">💳</div>
 
-        <div class="name">
-            Elia
-        </div>
+        <h1>Secure Payment</h1>
 
-        <h1>Activate Account</h1>
-
-        <p>
-            Complete your activation payment
-        </p>
+        <p>Choose your payment method below</p>
 
     </div>
 
 
-    <div class="card">
+    <div class="main-card">
 
-        <div class="price-box">
+        <!-- SUPERVISOR -->
 
-            <span>ACTIVATION FEE</span>
+        <div class="supervisor">
+            <small>Payment Supervisor</small>
+            <strong>Gilbert</strong>
+        </div>
+
+
+        <!-- AMOUNT -->
+
+        <div class="amount">
+
+            <span>PAYMENT AMOUNT</span>
 
             <h2>4,100 RWF</h2>
 
@@ -197,46 +386,167 @@ input:focus{
 
 
         <div class="section-title">
-            Payment Information
+            Payment Methods
         </div>
 
 
-        <div class="info-box">
-            Please complete your activation payment
-            before submitting your Transaction ID.
-            <br><br>
-            Reference Number: <b>2229954</b>
+        <!-- MTN -->
+
+        <div class="payment">
+
+            <div class="method">
+
+                <div class="method-icon mtn">
+                    M
+                </div>
+
+                <div>
+                    <div class="method-name">
+                        MTN Mobile Money
+                    </div>
+
+                    <div class="method-sub">
+                        Send the amount using MTN
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="send-text">
+                Send 4,100 RWF to:
+            </div>
+
+            <div class="number-row">
+
+                <div class="number">
+                    2233761
+                </div>
+
+                <button
+                    class="copy"
+                    onclick="copyText('2233761')">
+                    COPY
+                </button>
+
+            </div>
+
+
+            <div class="ussd">
+                *182*8*1*2233761#
+            </div>
+
+            <button
+                class="copy-ussd"
+                onclick="copyText('*182*8*1*2233761#')">
+
+                📋 Copy USSD Code
+
+            </button>
+
         </div>
 
 
-        <label for="transaction">
-            Transaction ID
-        </label>
+        <!-- AIRTEL -->
 
-        <input
-            type="text"
-            id="transaction"
-            placeholder="Enter Transaction ID"
-            autocomplete="off"
-        >
+        <div class="payment">
+
+            <div class="method">
+
+                <div class="method-icon airtel">
+                    A
+                </div>
+
+                <div>
+                    <div class="method-name">
+                        Airtel Money
+                    </div>
+
+                    <div class="method-sub">
+                        Send the amount using Airtel
+                    </div>
+                </div>
+
+            </div>
 
 
-        <button
-            class="confirm-btn"
-            onclick="confirmPayment()">
+            <div class="send-text">
+                Send 4,100 RWF to:
+            </div>
 
-            ✓ Confirm Payment
+            <div class="number-row">
 
-        </button>
+                <div class="number">
+                    0780519822
+                </div>
+
+                <button
+                    class="copy"
+                    onclick="copyText('0780519822')">
+                    COPY
+                </button>
+
+            </div>
+
+
+            <div class="ussd">
+                *182*1*2*0780519822#
+            </div>
+
+            <button
+                class="copy-ussd"
+                onclick="copyText('*182*1*2*0780519822#')">
+
+                📋 Copy USSD Code
+
+            </button>
+
+        </div>
+
+
+        <!-- TRANSACTION ID -->
+
+        <div class="transaction-section">
+
+            <label for="transaction">
+                Transaction ID
+            </label>
+
+            <div class="input-box">
+
+                <span>🔢</span>
+
+                <input
+                    id="transaction"
+                    type="text"
+                    placeholder="Enter your Transaction ID"
+                    autocomplete="off"
+                >
+
+            </div>
+
+
+            <button
+                class="confirm"
+                onclick="confirmPayment()">
+
+                ✓ Confirm Payment
+
+            </button>
+
+
+            <div
+                class="message"
+                id="message">
+            </div>
+
+        </div>
 
 
         <div class="security">
 
-            🔒 Payment information is securely submitted.
-
-            <br>
-
-            Make sure your Transaction ID is correct.
+            🔒 Please double-check your Transaction ID
+            before submitting.
 
         </div>
 
@@ -244,13 +554,30 @@ input:focus{
 
 
     <div class="footer">
-        © 2026 Smart Income Training
+        Payment Information
     </div>
 
 </div>
 
 
 <script>
+
+function copyText(text){
+
+    navigator.clipboard.writeText(text)
+    .then(function(){
+
+        alert("Copied successfully");
+
+    })
+    .catch(function(){
+
+        alert("Unable to copy");
+
+    });
+
+}
+
 
 function confirmPayment(){
 
@@ -260,6 +587,11 @@ function confirmPayment(){
         .value
         .trim();
 
+    const message =
+        document
+        .getElementById("message");
+
+
     if(transaction === ""){
 
         alert(
@@ -267,39 +599,17 @@ function confirmPayment(){
         );
 
         return;
-
     }
 
-    localStorage.setItem(
-        "activationPayment",
-        "paid"
-    );
 
-    localStorage.setItem(
-        "transactionId",
-        transaction
-    );
+    message.style.display = "block";
 
-    localStorage.setItem(
-        "activationAmount",
-        "4100"
-    );
-
-    localStorage.setItem(
-        "accountStatus",
-        "activated"
-    );
-
-    alert(
-        "Payment submitted successfully!"
-    );
-
-    window.location.href =
-        "dashboard.html";
+    message.innerHTML =
+        "Transaction ID submitted successfully.";
 
 }
 
 </script>
 
 </body>
-</html>
+                </html>
